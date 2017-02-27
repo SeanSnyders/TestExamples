@@ -1,0 +1,10 @@
+{
+  "name": "Test-Electron-Edge-DotNetCore",
+  "version": "0.1.0",
+  "description": "Tester",
+  "author": "Sean Snyders <sean.snyders@gmail.com>",
+  "main": "main.js",
+  "dependencies": {
+    "electron-edge": "^6.5.2"
+  }
+}

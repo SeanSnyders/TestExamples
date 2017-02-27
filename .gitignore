@@ -1,0 +1,9 @@
+node_modules/
+bin/
+obj/
+packages/
+tmp/
+.vs/
+*.VC.opendb
+*.VC.db
+npm-debug.log
