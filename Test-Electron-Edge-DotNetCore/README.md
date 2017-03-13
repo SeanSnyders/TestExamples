@@ -1,3 +1,9 @@
+# Sample Electron application using .Net Core via Edge
+
+This illustrates the basic functionality of using Edge to tie an Electron Javascript application to .Net Core c# code.
+
+It also illustrate the bare-bones of packaging up the Electron application.
+
 
 ## Installs
  1. Install Node 6.9.2
