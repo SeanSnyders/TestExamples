@@ -14,15 +14,27 @@ It also illustrate the bare-bones of packaging up the Electron application.
 
 The whole application can be built using the electron packager. This will build all the dependencies and put all the files in the correct places etc for a valid runnable application - either for running locally or as a packaged app.
 
-### The whole app in one step
+### Build script setup
 
- 1. Install the Electron project dependencies.
+To faciliate building on different platforms (currently Win and OSX), the `package.json` needs to update to call the correct scripts for doing the specific building and packaging. Change the appropriate scripts to use the `-win` or `-osx` postfixes depending on your platform:
+
+```
+"app-clean": "npm run app-clean-osx",
+"bridge-build-dotnetcore-clean": "npm run bridge-build-dotnetcore-clean-osx",
+"bridge-copy-dotnetcore": "npm run bridge-copy-dotnetcore-osx",
+```
+
+### The whole app in one process
+
+ 1. Update `package.json` for the platform-specific build scripts as mentioned above
+ 
+ 2. Install the Electron project dependencies.
  
   	 In this folder, call the following:
     
   	 `npm install`
 
- 2. Build the project.
+ 3. Build the project.
  
 	In this folder, call the following:
  
