@@ -7,7 +7,9 @@
   "scripts": {
     "start": "electron ./app",
 
-    "app-install": "cd app && npm install --no-optional",
+    "app-install": "npm run app-install-osx",
+    "app-install-osx": "cd app && PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig npm install --no-optional",
+    "app-install-win": "cd app && npm install --no-optional",
     "app-build": "npm run app-install",
     "app-clean": "npm run app-clean-osx",
     "app-clean-win": "(if exist ./app/node_modules/ (rmdir /S /Q ./app/node_modules))",
@@ -41,9 +43,8 @@
     "rebuild": "npm run clean && npm run all-include",
     "repack": "npm run rebuild && build --dir",
     "pack": "npm run all-include-current && build --x64 --win --dir",
-    "dist": "npm run rebuild && build --x64 --win",
+    "dist": "npm run rebuild && build --x64 --win"  
 
-    "postinstall": "install-app-deps"
   },
   "build": {
     "asar": false,
@@ -57,10 +58,10 @@
     ]
   },
   "dependencies": {
-    "electron-edge": "^6.5.2"
+    "electron-edge": "^6.5.5"
   },
   "devDependencies": {
     "electron-builder": "next",
-    "electron": "^1.3.4"
+    "electron": "^1.6.2"
   }
 }

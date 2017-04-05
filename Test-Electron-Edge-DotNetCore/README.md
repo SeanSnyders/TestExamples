@@ -6,9 +6,10 @@ It also illustrate the bare-bones of packaging up the Electron application.
 
 
 ## Installs
- 1. Install Node 6.9.2
- 2. Use npm 4.0.3 or newer
+ 1. Install Node 7.4.0
+ 2. Use npm 4.0.5 or newer
  3. Install .Net Core 1.0.0-preview2-1-003177
+ 4. [OSX specific] Install Mono 4.6
 
 ## Builds
 
@@ -19,6 +20,7 @@ The whole application can be built using the electron packager. This will build 
 To faciliate building on different platforms (currently Win and OSX), the `package.json` needs to update to call the correct scripts for doing the specific building and packaging. Change the appropriate scripts to use the `-win` or `-osx` postfixes depending on your platform:
 
 ```
+"app-install": "npm run app-install-osx",
 "app-clean": "npm run app-clean-osx",
 "bridge-build-dotnetcore-clean": "npm run bridge-build-dotnetcore-clean-osx",
 "bridge-copy-dotnetcore": "npm run bridge-copy-dotnetcore-osx",
@@ -32,7 +34,8 @@ To faciliate building on different platforms (currently Win and OSX), the `packa
  
   	 In this folder, call the following:
     
-  	 `npm install`
+  	 [Windows] `npm install`
+     [OSX] `PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig npm install`
 
  3. Build the project.
  
