@@ -34,8 +34,8 @@ To faciliate building on different platforms (currently Win and OSX), the `packa
  
   	 In this folder, call the following:
     
-  	 [Windows] `npm install`
-     [OSX] `PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig npm install`
+  	 - [Windows] `npm install`
+	 - [OSX] `PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig npm install`
 
  3. Build the project.
  
