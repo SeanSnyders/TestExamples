@@ -5,6 +5,6 @@
   "author": "Sean Snyders <sean.snyders@gmail.com>",
   "main": "main.js",
   "dependencies": {
-    "electron-edge": "^6.5.5"
+    "edge-js": "=6.6.4"
   }
 }

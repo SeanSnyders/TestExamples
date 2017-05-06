@@ -43,7 +43,7 @@
     "rebuild": "npm run clean && npm run all-include",
     "repack": "npm run rebuild && build --dir",
     "pack": "npm run all-include-current && build --x64 --win --dir",
-    "dist": "npm run rebuild && build --x64 --win"  
+    "dist": "npm run rebuild && build --x64 --win"
 
   },
   "build": {
@@ -56,9 +56,6 @@
       "node_modules/**/*"
 
     ]
-  },
-  "dependencies": {
-    "electron-edge": "^6.5.5"
   },
   "devDependencies": {
     "electron-builder": "next",
