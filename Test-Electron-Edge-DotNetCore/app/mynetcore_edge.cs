@@ -1,22 +1,18 @@
 using System;
 using System.Threading.Tasks;
-/*using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
 using System.IO;
 using System.Runtime.InteropServices;
-*/
+
 public class Startup
 {
     public async Task<object> TestMe_Edge(dynamic input)
     {
-        //Console.WriteLine("Version: {0}", Environment.Version.ToString());
-
-
         int answer = 0;
         try
         {
-            //answer = 40;
             answer = SS.MyNetCoreLib.TestNetCore.TestMe();
         }
         catch (Exception ex)

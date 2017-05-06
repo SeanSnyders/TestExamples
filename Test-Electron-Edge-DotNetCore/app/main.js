@@ -1,20 +1,6 @@
-var edge = require('electron-edge');
+require('./helloworld.js');
 
-let bridge = require('./bridge-external.js');
-
-
-var helloWorld = edge.func(function () {/*
-    async (input) => { 
-        return ".NET Welcomes " + input.ToString(); 
-    }
-*/});
-
-helloWorld('JavaScript', function (error, result) {
-    if (error) throw error;
-    console.log(result);
-});
-
-
+let bridge = require('./bridge-external-direct.js');
 
 // Testing DotNet Core
 // -------------------
@@ -30,4 +16,3 @@ try {
     //window.alert(e);
     throw (e);
 }
-

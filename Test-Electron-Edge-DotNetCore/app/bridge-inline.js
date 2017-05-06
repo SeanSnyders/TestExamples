@@ -1,5 +1,5 @@
 // requires
-let edge = require('electron-edge');
+let theedge = require('./require-edge.js');
 
 // function definitions
 // --------------------
@@ -9,7 +9,7 @@ let edge = require('electron-edge');
  * return: int
  */
 try {
-    var testMe = edge.func(function() {/*
+    var testMe = theedge.edge.func(function() {/*
         async (input) => {
             return 62;
         }

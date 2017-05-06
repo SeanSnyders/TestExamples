@@ -11,17 +11,11 @@ console.log("bridge-external bridgeBinDir=", bridgeBinDir);
 // function definitions
 // --------------------
 
-/*
- * payload: {}
- * return: int
- */
 try {
     var testMe = theedge.edge.func({
-        source: sourceDir + 'mynetcore_edge.cs',
-        references: [
-            bridgeBinDir + 'MyNetCoreLib.dll'
-        ],
-        methodName: 'TestMe_Edge'
+        methodName: 'TestMe',
+        assemblyFile: bridgeBinDir + 'MyNetCoreLib.dll',
+        typeName: 'SS.MyNetCoreLib.TestNetCore_EdgeWrapper'
     });
 } catch (e) {
     //window.alert(e)
