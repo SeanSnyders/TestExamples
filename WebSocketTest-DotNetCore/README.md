@@ -37,3 +37,8 @@ The client has an implementation to continue to read data from the socket until 
 
 Note that the server implementation does not do this.
 
+## Creating self-contained published applications
+
+To create self-contained applications of the client or server, you need to publish the dotnet project for a specific runtime (see https://docs.microsoft.com/en-us/dotnet/core/rid-catalog). In the below example we publish the server for a generic `linux-x64` runtime (e.g. can be used on AWS linux instances):
+`<repo>/TestExamples/WebSocketTest-DotNetCore/Server> dotnet publish -c Release -r linux-x64`
+
