@@ -18,6 +18,7 @@ namespace WebSocketTest
 {
     public class Startup
     {
+        public long _messageCount = 0;
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -99,9 +100,18 @@ namespace WebSocketTest
             WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             while (!result.CloseStatus.HasValue)
             {
+                // increment received message count as our basic state for our 'statefull' server
+                _messageCount++;
+
                 string wholeMessage = System.Text.Encoding.UTF8.GetString(buffer, 0, result.Count);
-                Console.WriteLine($"received msg: '{wholeMessage}'");
-                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
+                string logMessage = $"[{_messageCount}] received msg: '{wholeMessage}'";
+                Console.WriteLine(logMessage);
+                string responseMessage = $"[{_messageCount}] {wholeMessage}";
+
+                var responseByteArray = System.Text.Encoding.UTF8.GetBytes(responseMessage, 0, responseMessage.Length);
+
+                //await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
+                await webSocket.SendAsync(new ArraySegment<byte>(responseByteArray, 0, responseByteArray.Length), WebSocketMessageType.Text, true, CancellationToken.None);
 
                 result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             }
